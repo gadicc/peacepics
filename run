@@ -1,0 +1,3 @@
+#!/bin/bash
+#export FILEPICKER_API_KEY="A1mdNlRgHTL6N5eYMyMlNz"
+meteor -p 5000

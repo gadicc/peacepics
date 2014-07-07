@@ -1,0 +1,623 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Tran",
+				"Transitionable	(?)"
+			],
+			[
+				"is",
+				"isReady	(bool)"
+			],
+			[
+				"toL",
+				"toLowerCase()"
+			],
+			[
+				"current",
+				"currentTransition"
+			],
+			[
+				"get",
+				"getComponentData(comp, famousView})"
+			],
+			[
+				"com",
+				"component	(?)"
+			],
+			[
+				"fam",
+				"famousView"
+			],
+			[
+				"optoin",
+				"optionString(string)"
+			],
+			[
+				"start",
+				"startIndex"
+			],
+			[
+				"surf",
+				"surfaceOptions	{}"
+			],
+			[
+				"LO",
+				"LOCAL_METEORS_START_PORT	(num)"
+			],
+			[
+				"isA",
+				"isArray(value)"
+			],
+			[
+				"wa",
+				"waitFor2	(str)"
+			],
+			[
+				"l",
+				"lastStart"
+			],
+			[
+				"de",
+				"define(slug, options, steps)"
+			],
+			[
+				"increment",
+				"incrementCounter"
+			],
+			[
+				"met",
+				"meteorDir"
+			],
+			[
+				"f",
+				"fiber	(?)"
+			],
+			[
+				"d",
+				"define(slug, options, steps)"
+			],
+			[
+				"spawn",
+				"spawnAndLog"
+			],
+			[
+				"cu",
+				"currentDesc"
+			],
+			[
+				"select",
+				"selectedRepoId"
+			],
+			[
+				"server",
+				"serverInfo"
+			],
+			[
+				"ia",
+				"iaasData"
+			],
+			[
+				"Serv",
+				"ServerStats"
+			],
+			[
+				"commands",
+				"commandCallbacks"
+			],
+			[
+				"deploy",
+				"deployOptions"
+			],
+			[
+				"dyn",
+				"dyndnsHost"
+			],
+			[
+				"inst",
+				"installScripts	{}"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"p",
+				"privkey	(?)"
+			],
+			[
+				"ssh",
+				"sshKey"
+			],
+			[
+				"dropL",
+				"dropletDestroy"
+			],
+			[
+				"region",
+				"regionGetAll"
+			],
+			[
+				"update",
+				"updateInterval"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "peace.html",
+			"settings":
+			{
+				"buffer_size": 184,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 352.0,
+		"selected_items":
+		[
+			[
+				"tern",
+				"TernJS: Reload"
+			],
+			[
+				"ternj",
+				"TernJS: Reload"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 328.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/dragon/www/smart/famous-components/lib/compView.js",
+		"/home/dragon/www/smart/famous-components/smart.json",
+		"/home/dragon/www/smart/famous-components/lib/famous-components.js",
+		"/home/dragon/www/smart/famous-components/demo-cdn/public/requireFamousComponents.js",
+		"/home/dragon/www/smart/famous-components/demo-cdn/lib/famous-cdn.html",
+		"/home/dragon/www/smart/famous-components/lib/modifiers.js",
+		"/home/dragon/www/smart/famous-components/lib/famous.js",
+		"/home/dragon/www/smart/famous-components/lib/requires.js",
+		"/home/dragon/www/smart/famous-components/demo/client/events.js",
+		"/home/dragon/www/smart/famous-components/demo/client/views/GridLayout.js",
+		"/home/dragon/www/smart/famous-components/lib/views/EdgeSwapper.js",
+		"/home/dragon/www/smart/famous-components/lib/views/HeaderFooterLayout.js",
+		"/home/dragon/www/smart/famous-components/lib/views/Scrollview.js",
+		"/home/dragon/www/smart/famous-components/lib/views/RenderController.js",
+		"/home/dragon/www/smart/famous-components/lib/views/Flipper.js",
+		"/home/dragon/www/smart/famous-components/README.md",
+		"/home/dragon/www/smart/famous-components/demo/lib/smart.require",
+		"/home/dragon/www/smart/famous-components/demo/client/views/Scrollview.js",
+		"/home/dragon/www/smart/famous-components/demo/client/views/Scrollview.html",
+		"/home/dragon/www/smart/famous-components/demo/client/views/Deck.js",
+		"/home/dragon/www/smart/famous-components/demo/client/views/Deck.html",
+		"/home/dragon/www/smart/famous-components/demo/famous.js",
+		"/home/dragon/www/smart/famous-components/demo/famous.html",
+		"/home/dragon/www/smart/famous-components/lib/famousEach.js",
+		"/home/dragon/www/smart/famous-components/demo/client/issues/issue24.js",
+		"/home/dragon/www/smart/famous-components/demo/client/issues/issue24.html",
+		"/home/dragon/www/smart/famous-components/demo/client/issues/issue11.js",
+		"/home/dragon/www/smart/famous-components/demo/client/issues/issue11.html",
+		"/home/dragon/www/smart/famous-components/demo/client/views/Flipper.html",
+		"/home/dragon/www/smart/famous-components/demo/client/views/Flipper.js",
+		"/home/dragon/www/smart/famous-components/demo/client/views/EdgeSwapper.html",
+		"/home/dragon/www/smart/famous-components/demo/client/views/RenderController.html",
+		"/home/dragon/www/smart/famous-components/package.js",
+		"/home/dragon/www/smart/famous-components/demo/client/views/EdgeSwapper.js",
+		"/home/dragon/www/smart/famous-components/lib/sequencer.js",
+		"/home/dragon/www/smart/famous-components/demo/client/views/RenderController.js",
+		"/home/dragon/www/smart/famous-components/lib/famousEachSurface.js",
+		"/home/dragon/www/smart/famous-components/demo-cdn/lib/famous-cdn.js",
+		"/home/dragon/www/smart/famous-components/demo-cdn/famous.js",
+		"/home/dragon/www/smart/famous-components/demo-cdn/public/requireFamousComponents2.js",
+		"/home/dragon/www/smart/famous-components/demo/client/lib/require.js",
+		"/home/dragon/www/smart/famous-components/demo-cdn/smart.json",
+		"/home/dragon/www/smart/famous-components/lib/famous.html",
+		"/home/dragon/www/smart/famous-components/demo/lib/require.js",
+		"/home/dragon/www/smart/famous-components/demo/client/layouts.html",
+		"/home/dragon/www/smart/famous-components/demo/client/events.html",
+		"/home/dragon/www/smart/famous-components/demo/client/issues/issue14.html",
+		"/home/dragon/www/smart/famous-components/demo/client/issues/issue14.js",
+		"/home/dragon/www/smart/famous-components/demo/client/issues/issue12.html",
+		"/home/dragon/www/smart/famous-components/demo/famous.css",
+		"/home/dragon/www/smart/famous-components/demo/client/views/GridLayout.html",
+		"/home/dragon/www/smart/famous-components/demo/client/issues/issue12.js",
+		"/home/dragon/www/smart/famous-components/demo/client/issues/issue10.html",
+		"/home/dragon/www/smart/famous-components/demo/client/issues/issue10.js",
+		"/home/dragon/www/smart/famous-components/demo/lib/menu.js",
+		"/home/dragon/www/smart/famous-components/demo/client/issues/11.js",
+		"/home/dragon/www/smart/famous-components/demo/client/issues/11.html",
+		"/home/dragon/www/smart/famous-components/History.md",
+		"/home/dragon/www/smart/famous-components/demo/client/views/GridLayout.css",
+		"/home/dragon/www/smart/famous-components/demo/client/layouts.js",
+		"/home/dragon/www/smart/famous-components/demo/client/layouts.css",
+		"/home/dragon/www/smart/famous-components/demo/client/events.css",
+		"/home/dragon/www/smart/famous-components/demo/client/views/Scrollview.css",
+		"/home/dragon/www/smart/famous-components/demo/packages/famous-components/package.js",
+		"/home/dragon/www/smart/famous-components/demo/packages/famous-components/History.md",
+		"/home/dragon/www/smart/famous-components/demo/packages/famous-components/smart.json",
+		"/home/dragon/www/smart/famous-components/demo/packages/famous-components/lib/famous-components.js",
+		"/home/dragon/www/projects/wmd/server/packages/wmd-nginx/lib/apps/manage.js",
+		"/home/dragon/www/projects/wmd/server/packages/wmd-nginx/lib/apps/apps.js",
+		"/home/dragon/www/projects/wmd/server/packages/wmd-digitalocean/package.js",
+		"/home/dragon/www/projects/wmd/server/modules/db/manage.js",
+		"/home/dragon/www/projects/wmd/server/modules/apps/manage.js",
+		"/home/dragon/www/projects/wmd/server/lib/constants.js",
+		"/home/dragon/www/projects/wmd/wmd.sublime-project",
+		"/home/dragon/www/projects/wmd/server/lib/models.js",
+		"/home/dragon/www/projects/wmd/server/packages/tasks/README.md",
+		"/home/dragon/www/projects/wmd/server/modules/servers/servers.html",
+		"/home/dragon/www/projects/wmd/server/wmd.js",
+		"/home/dragon/www/projects/wmd/README.md",
+		"/home/dragon/www/projects/wmd/server/modules/servers/serverInfo.js",
+		"/home/dragon/www/projects/wmd/server/packages/tasks/tasks.js",
+		"/home/dragon/www/projects/wmd/server/modules/apps/appInfo.html",
+		"/home/dragon/www/projects/wmd/server/modules/apps/apps.js",
+		"/home/dragon/www/projects/wmd/server/private/scripts/appInstall.sh",
+		"/home/dragon/www/projects/wmd/server/private/scripts/appSSH.sh",
+		"/home/dragon/www/projects/wmd/server/modules/user/user.html",
+		"/home/dragon/www/projects/wmd/server/modules/user/user.js",
+		"/home/dragon/www/projects/wmd/server/modules/apps/appNew.js",
+		"/home/dragon/www/projects/wmd/server/packages/tasks/child_process.js",
+		"/home/dragon/www/projects/wmd/server/packages.json",
+		"/home/dragon/www/projects/wmd/server/smart.json",
+		"/home/dragon/www/projects/wmd/server/modules/db/db.js",
+		"/home/dragon/www/projects/wmd/server/modules/db/db.html",
+		"/home/dragon/www/projects/wmd/server/modules/db/db.css",
+		"/home/dragon/www/projects/wmd/server/wmd.html",
+		"/home/dragon/www/projects/wmd/server/smart.lock",
+		"/home/dragon/www/projects/wmd/server/wmd.css",
+		"/home/dragon/www/projects/wmd/server/packages/tasks/tasks.html",
+		"/home/dragon/www/projects/wmd/server/packages/tasks/package.js",
+		"/home/dragon/www/projects/wmd/server/packages/tasks/tasks-client.js",
+		"/home/dragon/www/projects/wmd/server/modules/servers/serverNew.js",
+		"/home/dragon/www/projects/wmd/server/modules/servers/servers.js",
+		"/home/dragon/www/projects/wmd/server/packages/wmd-github/lib/apps/manage.js",
+		"/home/dragon/www/projects/wmd/server/modules/logs/child_process.js",
+		"/home/dragon/www/projects/wmd/server/modules/logs/tasks.js",
+		"/home/dragon/www/projects/wmd/server/modules/logs/tasks.html",
+		"/home/dragon/www/projects/wmd/server/modules/logs/tasks.css",
+		"/home/dragon/.config/sublime-text-3/Packages/User/TernJS.sublime-settings",
+		"/home/dragon/.config/sublime-text-3/Packages/TernJS/TernJS.sublime-settings",
+		"/home/dragon/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/dragon/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/dragon/www/projects/wmd/server/modules/apps/apps.html",
+		"/home/dragon/www/projects/wmd/server/modules/apps/appInfo.js",
+		"/home/dragon/www/projects/wmd/server/modules/apps/appNew.html",
+		"/home/dragon/www/projects/wmd/server/modules/servers/servers.css",
+		"/home/dragon/www/projects/wmd/server/lib/general.js",
+		"/home/dragon/www/projects/wmd/server/modules/apps/apps.css",
+		"/home/dragon/www/projects/wmd/server/modules/servers/serverInfo.html",
+		"/home/dragon/www/projects/wmd/server/modules/logs/logs.html",
+		"/home/dragon/www/projects/wmd/server/modules/logs/logs.js",
+		"/home/dragon/www/projects/wmd/server/modules/apps/appInfo.css",
+		"/home/dragon/www/projects/wmd/server/modules/apps/appNew.css",
+		"/home/dragon/www/projects/wmd/server/lib/files.js",
+		"/home/dragon/www/projects/wmd/server/modules/servers/serverInfo.css",
+		"/home/dragon/www/projects/wmd/server/lib/commands.js",
+		"/home/dragon/www/projects/wmd/server/modules/servers/serverNew.html",
+		"/home/dragon/www/projects/wmd/server/modules/servers/serverNew.css",
+		"/home/dragon/www/projects/wmd/server/modules/apps/showApp.html"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"destroy",
+			"famous",
+			"gridlayout",
+			"rendercontroller",
+			"startup(",
+			"startup()",
+			"famousCmp",
+			"register",
+			"spring",
+			"require",
+			"famous",
+			"Surface",
+			"surface",
+			"rendernode",
+			"famous",
+			"StateModifier",
+			"statemodifier",
+			"Surface",
+			"famous",
+			"compview",
+			"compview.proto",
+			"events",
+			"pipechildrento",
+			"pipe",
+			"piping",
+			"pipe",
+			".surface",
+			"pipechildren",
+			"templatesurface",
+			"parent",
+			"famouseachrender",
+			"scrollview",
+			"mainctx",
+			"getkind",
+			"getKind",
+			"modifier",
+			"transform",
+			"modifier",
+			"200",
+			"life",
+			"transitions",
+			"require",
+			"runreadies",
+			"startup",
+			"ready()",
+			"surface",
+			"Router",
+			"register",
+			"ready()",
+			"isready",
+			"require",
+			"startup",
+			"Engine",
+			"startup",
+			"load",
+			"require =",
+			"require",
+			"famousCmp.require",
+			"require",
+			"progress",
+			"destroy",
+			"destroyed",
+			"destroy",
+			"viewOption",
+			"destroy",
+			"console.log",
+			"uihook",
+			"console.log",
+			"destroy",
+			"ui.render",
+			"compview",
+			"75",
+			"alert",
+			"view",
+			"sequencer",
+			"sequence",
+			"event",
+			"100",
+			"_GridLayout",
+			"Surface",
+			"autosize",
+			"modifier",
+			"size",
+			"'view'",
+			"View",
+			"size",
+			"size=",
+			"Menu.add",
+			"Menu.list",
+			"Menu",
+			"AA",
+			"famousRendered",
+			"100",
+			"View",
+			"data",
+			"console.log",
+			"render",
+			"getsize",
+			"splice",
+			"purge",
+			"this.data",
+			"log.debug('  ",
+			"log.debug",
+			"console.log",
+			"log.",
+			"console.log",
+			"_.each",
+			"view",
+			"eventsdemo",
+			"events",
+			"handleoptions",
+			"floatarray",
+			"sequential",
+			"sequenti",
+			"Famous",
+			"blockspring",
+			"blockS",
+			"innerhtml",
+			"innerHTML",
+			"class",
+			"console.log",
+			"lastIndex",
+			".x",
+			"sequence",
+			"loop",
+			"sequence",
+			"sequencer",
+			"sequence"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"150",
+			"require",
+			"status",
+			"Commands",
+			"Servers.",
+			"ServerStats.",
+			"Servers.",
+			"h3>",
+			"this"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "peace.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 184,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "peace.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/www/subl/mink.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 193.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

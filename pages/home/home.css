@@ -1,0 +1,15 @@
+div.pic {
+	width: 150px;
+	height: 150px;
+	background: #aaa;
+	border: 1px solid #555;
+	display: inline-block;
+  transition: all .35s ease-in-out;
+	-webkit-transition: all .35s ease-in-out;
+	-moz-transition: all .35s ease-in-out;
+	-o-transition: all .35s ease-in-out;
+}
+
+.zeroWidth {
+	width: 0 !important;
+}

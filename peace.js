@@ -62,4 +62,25 @@ if (Meteor.isServer) {
     saveLocation: true
   });
 
+  // redirect to ROOT_URL host if not already using it
+  // currently required for oauth from multiple hosts.
+  // also force ssl, easier than modding force-ssl package
+  // for production only (interferes with callbacks via dyndns)
+  if (process.env.NODE_ENV == 'production')
+  WebApp.connectHandlers.use(function (req, res, next) {
+    if (Inject.appUrl(req.url)) {
+      var rootHost = /https?:\/\/(.*?)\/.*/.exec(process.env.ROOT_URL)[1];
+      var thisHost = req.headers.host.replace(/:\d+$/, '');
+      if (rootHost != req.headers.host
+          || req.headers['x-forwarded-proto'] != 'https') {
+        res.writeHead(302, {
+          'Location': 'https://' + rootHost + req.url
+        });
+        res.end();
+        return;     
+      }
+    }
+    return next();
+  });
+
 }

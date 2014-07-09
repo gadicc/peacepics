@@ -5,6 +5,7 @@
     "connection-banner": {},
     "iron-router": {},
     "fancybox": {},
-    "googlemaps": {}
+    "googlemaps": {},
+    "npm": {}
   }
 }

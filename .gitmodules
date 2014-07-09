@@ -1,3 +1,6 @@
 [submodule "packages/mink"]
 	path = packages/mink
 	url = https://github.com/gadicc/mink
+[submodule "packages/accounts-merge"]
+	path = packages/accounts-merge
+	url = https://github.com/gadicc/meteor-accounts-merge.git

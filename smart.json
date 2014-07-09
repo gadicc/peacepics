@@ -6,6 +6,7 @@
     "iron-router": {},
     "fancybox": {},
     "googlemaps": {},
-    "npm": {}
+    "npm": {},
+    "inject-initial": {}
   }
 }

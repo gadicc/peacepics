@@ -1,14 +1,15 @@
 Router.map(function() {
 	this.route('map', {
 		onBeforeAction: function() {
-			Meteor.subscribe('users');
-			Meteor.subscribe('locations');
+			this.subscribe('users');
+			this.subscribe('locations');
 		}
 	});
 });
 
-gmapInitted = new ReactiveDict();
-gmapInitted.set('initted', false);
+initted = new ReactiveDict();
+initted.set('gmaps', false);
+initted.set('richmarker', false);
 
 // if location was added after user [was queued], dequeue
 locations.added(function(doc) {
@@ -84,46 +85,22 @@ GoogleMaps.init(
 //	        'language': 'de' //optional
   }, 
   function() {
-  	gmapInitted.set('initted', true);
-
+  	initted.set('gmaps', true);
     jQuery.getScript("http://google-maps-utility-library-v3.googlecode.com/svn/trunk/richmarker/src/richmarker-compiled.js",
       function() {
-
-        Meteor.users.find().observe({
-
-          'added': function(user) {
-            addUserToMap(user);
-          },
-
-          'changed': function(user) {
-            if (userMarkers[user._id]) {
-              markerCluster.removeMarker(userMarkers[user._id]);
-              delete(userMarkers[user._id]);
-            }
-            _.defer(function() {
-              // Can't do method calls inside observes??
-              Meteor.call('checkLocation', user.profile.location);
-            });
-            addUserToMap(user);
-          },
-
-          'removed': function(user) {
-            if (userMarkers[user._id]) {
-              markerCluster.removeMarker(userMarkers[user._id]);
-              delete(userMarkers[user._id]);
-            }
-          }
-
-        }); /* observe */
-
+      	initted.set('richmarker', true);
       }); /* richmarker init */
-
   } /* gmaps init */
 );
 
+Template.map.created = function() {
+	this.handles = {};
+}
+
 Template.map.rendered = function() {
-	this.initHandle = Deps.autorun(function() {
-		if (!gmapInitted.get('initted'))
+	var self = this;
+	self.handles.gmapsInitted = Deps.autorun(function() {
+		if (!(initted.get('gmaps') && initted.get('richmarker')))
 			return;
 
 		console.log('go!', document.getElementById('map-canvas'));
@@ -136,10 +113,38 @@ Template.map.rendered = function() {
 	  map.setCenter(new google.maps.LatLng(32, 35));
 
 		window.markerCluster = new MarkerClusterer(map);
-		window.infowindow = new google.maps.InfoWindow();	  
+		window.infowindow = new google.maps.InfoWindow();
+
+	  self.handles.observe = Meteor.users.find().observe({
+	    'added': function(user) {
+	      addUserToMap(user);
+	    },
+
+	    'changed': function(user) {
+	      if (userMarkers[user._id]) {
+	        markerCluster.removeMarker(userMarkers[user._id]);
+	        delete(userMarkers[user._id]);
+	      }
+	      _.defer(function() {
+	        // Can't do method calls inside observes??
+	        Meteor.call('checkLocation', user.profile.location);
+	      });
+	      addUserToMap(user);
+	    },
+
+	    'removed': function(user) {
+	      if (userMarkers[user._id]) {
+	        markerCluster.removeMarker(userMarkers[user._id]);
+	        delete(userMarkers[user._id]);
+	      }
+	    }
+	  }); /* observe */
+
 	});
 }
 
 Template.map.destroyed = function() {
-	this.initHandle.stop();
+	for (key in this.handles)
+		if (this.handles[key])
+			this.handles[key].stop();
 }

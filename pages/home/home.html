@@ -1,10 +1,34 @@
+<head>
+	<style type="text/css" id="picStyle">
+	</style>
+</head>
+
 <template name="home">
+	<!--
 	<p><button id="add">Add</button></p>
+	-->
+
+	<div id="jumbo">
+		{{count}} people chose peace.
+		<img src="/300px-Dove_peace.svg.png" />
+	</div>
 
 	<div id="gallery">
-		{{#each pics}}
-			<div class="pic">
-			</div>
-		{{/each}}
+		{{#each pics}}<div class="pic" style="{{bg}}">
+			<img src="{{url}}">
+		</div>{{/each}}
 	</div>
+
+	{{!--
+	{{#masonryContainer columnWidth=".pic" transitionDuration="0.1s" gutter=0 id="MasonryContainer" isHorizontal=true}}
+   {{#each pics}}
+	   {{#masonryElement "MasonryContainer"}}
+        <div class="pic">
+         {{createdAt}}
+        </div>
+     {{/masonryElement}}
+    {{/each}}
+  {{/masonryContainer}}
+  --}}
+
 </template>

@@ -7,6 +7,8 @@
     "fancybox": {},
     "googlemaps": {},
     "npm": {},
-    "inject-initial": {}
+    "inject-initial": {},
+    "masonrify": {},
+    "jquery-jcrop": {}
   }
 }

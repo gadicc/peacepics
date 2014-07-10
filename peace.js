@@ -1,6 +1,9 @@
 if (Meteor.isClient) {
 
   mink.init(FILEPICKER_API_KEY, {
+  	s3: {
+  		bucket: 'peace.pics'
+  	},
     'profiles': {
       default: {
         minkOptions: {

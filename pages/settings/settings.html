@@ -1,2 +1,9 @@
 <template name="settings">
+	<div class="container-fluid">
+		<h1>My Settings</h1>
+
+		{{#with user}}
+			{{> minkProfile src=profile.pic done='saveUserPic'}}
+		{{/with}}
+	</div>
 </template>

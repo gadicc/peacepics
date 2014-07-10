@@ -4,3 +4,6 @@
 [submodule "packages/accounts-merge"]
 	path = packages/accounts-merge
 	url = https://github.com/gadicc/meteor-accounts-merge.git
+[submodule "packages/modal-bs3ui"]
+	path = packages/modal-bs3ui
+	url = https://github.com/gadicc/meteor-modal-bs3ui.git

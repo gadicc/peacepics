@@ -9,7 +9,9 @@
       "fancybox": {},
       "googlemaps": {},
       "npm": {},
-      "inject-initial": {}
+      "inject-initial": {},
+      "masonrify": {},
+      "jquery-jcrop": {}
     },
     "packages": {
       "blaze-layout": {
@@ -51,6 +53,16 @@
         "git": "https://github.com/gadicc/meteor-inject-initial.git",
         "tag": "v0.0.8",
         "commit": "90f2fbcc5b4bc17fa4d4535f47813e31d86033b4"
+      },
+      "masonrify": {
+        "git": "https://github.com/voodoohop/meteor-masonrify.git",
+        "tag": "v0.0.3",
+        "commit": "e7a5e71a4193bd68a7bae4c250931147659b5dcb"
+      },
+      "jquery-jcrop": {
+        "git": "https://github.com/waltyuyu/meteor-jquery-jcrop.git",
+        "tag": "v0.0.3",
+        "commit": "45a62562f3d13cbc72a7710472a76cf9c3c589cd"
       }
     }
   }

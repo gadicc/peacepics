@@ -1,5 +1,7 @@
 <template name="submit">
 	<h1>Submit a picture</h1>
 
-	{{> minkProfile}}
+	{{#with user}}
+		{{> minkProfile src=profile.pic done='saveUserPic'}}
+	{{/with}}
 </template>

@@ -14,8 +14,8 @@ div.navbar {
 }
 
 #login-buttons {
-	/* like .navbar-nav > li > a */
-	padding-top: 15px; padding-bottom: 15px; display: block;
+	/* like .navbar-nav > li > a; but -6px for fb button */
+	padding-top: 12px; padding-bottom: 12px; display: block;
 }
 
 #loadingBar {

@@ -86,7 +86,7 @@ GoogleMaps.init(
   }, 
   function() {
   	initted.set('gmaps', true);
-    jQuery.getScript("http://google-maps-utility-library-v3.googlecode.com/svn/trunk/richmarker/src/richmarker-compiled.js",
+    jQuery.getScript("//google-maps-utility-library-v3.googlecode.com/svn/trunk/richmarker/src/richmarker-compiled.js",
       function() {
       	initted.set('richmarker', true);
       }); /* richmarker init */

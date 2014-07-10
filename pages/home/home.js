@@ -39,7 +39,7 @@ if (Meteor.isClient) {
 			});
 		},
 		'count': function() {
-			var doc = Stats.findOne('pics');
+			var doc = Stats.findOne('users');
 			return doc ? doc.count : 0;
 		},
 		bg: function() {

@@ -10,6 +10,16 @@ if (Meteor.isClient) {
 		}
 	});
 
+	Template.settings.events({
+		'change #inputLocation': function(event, tpl) {
+			var location = $(event.target).val();
+			Meteor.users.update(Meteor.userId(), {
+				$set: { 'profile.location': location }
+			});
+      Meteor.call('checkLocation', location);
+		}
+	})
+
 	saveUserPic = function(f) {
 		console.log(f);
 		console.log(f.csFile);

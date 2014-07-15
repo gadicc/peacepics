@@ -4,6 +4,7 @@ var fbPages = {
 	"ArabsAndJews": "417366255018379"
 };
 var PICS_INIT_ROWS = 4;
+PICS_INIT_ROWS = 50;  // TODO infinite scroll
 
 if (Meteor.isClient) {
 

@@ -80,7 +80,7 @@ facebook.feed._get = function(user, url) {
 		Meteor.setTimeout(function() {
 			console.log('new page');
 			facebook.feed._get(res.paging.next, true);
-		}, 500);
+		}, 1000);
 	}
 }
 facebook.feed.get = function(user) {

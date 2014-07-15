@@ -77,8 +77,10 @@ facebook.feed._get = function(user, url) {
 				facebook.hooks.feed[i].call(null, post);
 	});
 	if (inserted && res.paging && res.paging.next) {
-		console.log('new page');
-		facebook.feed._get(res.paging.next, true);
+		Meteor.setTimeout(function() {
+			console.log('new page');
+			facebook.feed._get(res.paging.next, true);
+		}, 500);
 	}
 }
 facebook.feed.get = function(user) {

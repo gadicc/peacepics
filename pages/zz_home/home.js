@@ -244,7 +244,7 @@ if (Meteor.isServer) {
 		console.log('go');
 		for (page in fbPages) {
 			facebook.feed.get(fbPages[page]);
-			facebook.page.get(fbPages[page]);
+			facebook.page.get(fbPages[page], null, true);
 		}
 	}, 30000);
 

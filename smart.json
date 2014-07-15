@@ -9,6 +9,7 @@
     "npm": {},
     "inject-initial": {},
     "masonrify": {},
-    "jquery-jcrop": {}
+    "jquery-jcrop": {},
+    "messageformat": {}
   }
 }

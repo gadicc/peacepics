@@ -1,0 +1,67 @@
+{
+  "dependencies": {
+    "body-parser": {
+      "version": "1.4.3",
+      "dependencies": {
+        "bytes": {
+          "version": "1.0.0"
+        },
+        "depd": {
+          "version": "0.3.0"
+        },
+        "iconv-lite": {
+          "version": "0.4.3"
+        },
+        "media-typer": {
+          "version": "0.2.0"
+        },
+        "qs": {
+          "version": "0.6.6"
+        },
+        "raw-body": {
+          "version": "1.2.2"
+        },
+        "type-is": {
+          "version": "1.3.1",
+          "dependencies": {
+            "mime-types": {
+              "version": "1.0.0"
+            }
+          }
+        }
+      }
+    },
+    "fbgraph": {
+      "version": "0.2.10",
+      "dependencies": {
+        "request": {
+          "version": "2.11.4",
+          "dependencies": {
+            "form-data": {
+              "version": "0.0.3",
+              "dependencies": {
+                "combined-stream": {
+                  "version": "0.0.3",
+                  "dependencies": {
+                    "delayed-stream": {
+                      "version": "0.0.5"
+                    }
+                  }
+                },
+                "async": {
+                  "version": "0.1.9"
+                }
+              }
+            },
+            "mime": {
+              "version": "1.2.7"
+            }
+          }
+        },
+        "qs": {
+          "version": "0.5.6"
+        }
+      }
+    }
+  }
+}

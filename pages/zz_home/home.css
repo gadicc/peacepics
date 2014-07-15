@@ -1,5 +1,9 @@
 @import url(//fonts.googleapis.com/css?family=Marck+Script);
 
+#gallery {
+	font-size: 0;
+}
+
 div.pic {
 	background: #aaa;
 	/* width: 150px; height: 150px; */
@@ -11,8 +15,10 @@ div.pic {
 	-o-transition: all .35s ease-in-out;
 }
 
-div.pic > img {
+div.pic > div {
 	width: 100%; height: 100%;
+	background-position: center 0px;
+	background-size: 100% 100%;
 }
 
 .zeroWidth {
@@ -21,19 +27,34 @@ div.pic > img {
 
 #jumbo {
 	background: #404496;
-	height: 2em;
-	line-height: 2em;
-	font-size: 600%;
-	color: white;
-	text-shadow: 1px 1px 1px #55a;
-	font-family: 'Marck Script', cursive;
 	text-align: center;
 	position: relative;
 }
 
+#tagline {
+	height: 2em;
+	line-height: 2em;
+	font-size: 500%;
+	color: white;
+	text-shadow: 1px 1px 1px #55a;
+	font-family: 'Marck Script', cursive;	
+}
+
 #jumbo > img {
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
-	height: 70%;
+	line-height: 2em;
+	font-size: 500%;
+	height: 1em;
+	margin-right: 25px;
+	position: relative;
+	top: -.1em;
+}
+
+#jumbo > a {
+	font-family: verdana;
+	position: relative;
+	top: -1em;
+	color: #9999ff;
+}
+#jumbo > a:hover {
+	color: #bbbbff;
 }

@@ -11,7 +11,8 @@
       "npm": {},
       "inject-initial": {},
       "masonrify": {},
-      "jquery-jcrop": {}
+      "jquery-jcrop": {},
+      "messageformat": {}
     },
     "packages": {
       "blaze-layout": {
@@ -63,6 +64,16 @@
         "git": "https://github.com/waltyuyu/meteor-jquery-jcrop.git",
         "tag": "v0.0.3",
         "commit": "45a62562f3d13cbc72a7710472a76cf9c3c589cd"
+      },
+      "messageformat": {
+        "git": "https://github.com/gadicohen/meteor-messageformat.git",
+        "tag": "v0.0.33",
+        "commit": "9152409d83d402bf796df812f63af5ee0977ae2b"
+      },
+      "headers": {
+        "git": "https://github.com/gadicohen/meteor-headers.git",
+        "tag": "v0.0.24",
+        "commit": "3c09e682895e13c71ca0114baf3c09ee9c507709"
       }
     }
   }

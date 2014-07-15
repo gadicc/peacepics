@@ -1,24 +1,16 @@
 <template name="settings">
 	<div class="container-fluid">
-		<h1>My Settings</h1>
-
 		{{#with user}}
 
-			{{> minkProfile src=profile.pic done='saveUserPic'}}
-			<p><b>Home & Map Picture</b></p>
+			<img src="{{profile.pic}}"
+				style="float: left; top: 12px; margin-right: 12px; position: relative">
 
-			<p>
-				<span style="font-size: 90%; color: #888">
-					Take a photo of yourself holding a sign with any/all of the following:
-				</span><br />
-				• I choose Peace 
-				• אני בוחר/ת בשלום
-				• اخترت السلام
-				•
-			</p>
+			<h1>My Settings</h1>
 
+			{{! > minkProfile src=profile.pic done='saveUserPic'}}
+
+			<h3>Map Location</h3>
 			<p>
-				<b>Location</b><br />
 				<input type='text' id='inputLocation' value="{{profile.location}}"/><br />
 				<span style="font-size: 90%; color: #888">
 					You will appear on the map near the center of the above location.<br />
@@ -26,7 +18,37 @@
 				</span>
 			</p>
 
+			<h3>Submit a Picture</h3>
 
+			<p>
+				<b>I Choose Peace</b><br />
+				<span style="font-size: 90%; color: #888">
+					Post a photo of yourself
+					<a href="https://www.facebook.com/AniBocherShalom">here</a>
+					holding a sign with any/all of the following:
+				</span><br />
+				• I choose Peace<br />
+				• אני בוחר/ת בשלום<br />
+				• اخترت السلام
+			</p>
+
+			<p>
+				<b>Arabs and Jews Refuse to be Enemies</b><br />
+				<span style="font-size: 90%; color: #888">
+					Post a photo of yourself
+					<a href="https://www.facebook.com/ArabsAndJews">here</a>
+					holding a sign with any/all of the following:
+				</span><br />
+				• Arabs and Jews Refuse to be Enemies<br />
+				• יהודים וערבים מסרבים להיות אויבים<br />
+				• اخترت السلام
+			</p>
+
+		{{else}}
+
+			<h1>Please log in to change your settings</h1>
+
+			{{> loginButtons}}
 
 		{{/with}}
 	</div>

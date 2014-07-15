@@ -3,19 +3,20 @@
 	</style>
 </head>
 
-<template name="home">
+<template name="fbPage">
 	<!--
 	<p><button id="add">Add</button></p>
 	-->
 
 	<div id="jumbo">
-		{{count}} people chose peace.
 		<img src="/300px-Dove_peace.svg.png" />
+		<span id="tagline">{{tagline}}</span><br />
+		{{{fbLink}}}
 	</div>
 
 	<div id="gallery">
 		{{#each pics}}<div class="pic" style="{{bg}}">
-			<img src="{{url}}">
+			<div style="background-image: url({{url}})"></div>
 		</div>{{/each}}
 	</div>
 

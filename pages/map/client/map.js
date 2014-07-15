@@ -77,21 +77,22 @@ function markerInfo() {
     infowindow.open(map, this);
 }
 
-
-GoogleMaps.init(
-  {
-      'sensor': true, //optional
-//	        'key': 'MY-GOOGLEMAPS-API-KEY', //optional
-//	        'language': 'de' //optional
-  }, 
-  function() {
-  	initted.set('gmaps', true);
-    jQuery.getScript("//google-maps-utility-library-v3.googlecode.com/svn/trunk/richmarker/src/richmarker-compiled.js",
-      function() {
-      	initted.set('richmarker', true);
-      }); /* richmarker init */
-  } /* gmaps init */
-);
+$(document).ready(function() {
+	GoogleMaps.init(
+	  {
+	      'sensor': true, //optional
+	//	        'key': 'MY-GOOGLEMAPS-API-KEY', //optional
+	//	        'language': 'de' //optional
+	  }, 
+	  function() {
+	  	initted.set('gmaps', true);
+	    jQuery.getScript("//google-maps-utility-library-v3.googlecode.com/svn/trunk/richmarker/src/richmarker-compiled.js",
+	      function() {
+	      	initted.set('richmarker', true);
+	      }); /* richmarker init */
+	  } /* gmaps init */
+	);
+});
 
 Template.map.created = function() {
 	this.handles = {};
@@ -102,8 +103,6 @@ Template.map.rendered = function() {
 	self.handles.gmapsInitted = Deps.autorun(function() {
 		if (!(initted.get('gmaps') && initted.get('richmarker')))
 			return;
-
-		console.log('go!', document.getElementById('map-canvas'));
 
 	  var mapOptions = {
 	      zoom: 9,

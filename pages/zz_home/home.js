@@ -19,7 +19,7 @@ if (Meteor.isClient) {
 		this.route('*', {
 			path: '/:pageName',
 			template: 'fbPage',
-			onBeforeAction: function() {
+			onBeforeAction: function(pause) {
 				if (!fbPages[this.params.pageName])
 					return false;
 				Session.set('fbPageName', this.params.pageName);
@@ -47,6 +47,22 @@ if (Meteor.isClient) {
 		}
 	});
 
+	Template.pic.events({
+		'click div.pic': function(event, tpl) {
+			console.log(tpl);
+			modal({
+				title: false, //'What do you think?',
+				showFooter: false,
+				body: 'picPopup',
+				context: tpl.data
+			});
+		}
+	});
+
+	Template.picPopup.rendered = function() {
+		FB.XFBML.parse();
+	};
+
 	Stats = new Meteor.Collection('stats');
 	Meteor.subscribe('stats');
 
@@ -69,6 +85,8 @@ if (Meteor.isClient) {
 			return name ? current == name : current;
 		},
 		'pics': function() {
+			if (!subs.pics.ready())
+				return [];
 			return Pics.find({ pageId: Session.get('fbPageId') }, {
 				limit: Session.get('picsLimit'),
 				sort: { createdAt: -1 }
@@ -85,7 +103,7 @@ if (Meteor.isClient) {
 						'{count} people chose peace.');
 				case 'ArabsAndJews':
 					return mf('tagline_ArabsAndJews', { count: count },
-						'{count} people refused to be enemies');
+						'{count} refuse to be enemies');
 			}
 		},
 		'fbLink': function() {
@@ -142,7 +160,7 @@ if (Meteor.isClient) {
 			if (!Session.get('picsLimit'))
 				Session.set('picsLimit', cols * PICS_INIT_ROWS);
 
-			if (sheet.rules.length)
+			if (sheet.rules && sheet.rules.length)
 					sheet.deleteRule(0);
 			sheet.insertRule('div.pic { width: ' + width + 'px; height: ' + height + 'px;', 0);
 		});

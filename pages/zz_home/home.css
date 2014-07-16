@@ -58,3 +58,6 @@ div.pic > div {
 #jumbo > a:hover {
 	color: #bbbbff;
 }
+
+div.picPopup p { text-align: center; }
+div.picPopup img.pic { max-width: 100%; cursor: pointer; }

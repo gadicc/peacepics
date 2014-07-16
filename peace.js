@@ -1,3 +1,8 @@
+adminIds = [
+	"10152329223544247", // Gadi
+	"10152578388294882"  // Gil
+];
+
 if (Meteor.isClient) {
 
   mink.init(FILEPICKER_API_KEY, {
@@ -52,11 +57,22 @@ if (Meteor.isClient) {
       this.render('loginFirst');
       pause();
     }
-  }
+  };
+
+  Template.navbar.rendered = function() {
+		if (typeof FB !== 'undefined')
+			FB.XFBML.parse();
+  };
 
 }
 
 if (Meteor.isServer) {
+
+	Meteor.publish('userExtra', function() {
+		return Meteor.users.find({}, {
+			fields: { access: 1 }
+		});
+	});
 
   AccountsExtra.init({
     saveCreatedAt: true,

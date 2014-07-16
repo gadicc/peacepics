@@ -154,7 +154,7 @@ if (Meteor.isClient) {
 			var sheet = document.getElementById('picStyle').sheet;
 			var windowWidth = Session.get('windowWidth');
 			var cols = Math.round(windowWidth / IDEAL_WIDTH);
-			var width = windowWidth / cols;
+			var width = (windowWidth / cols) - 0.1;
 			var height = width * 0.75;
 
 			if (!Session.get('picsLimit'))
@@ -171,6 +171,8 @@ if (Meteor.isClient) {
 	Meteor.setInterval(function() {
 		// detect if scrollbar added
 		var width = $(window).width();
+		if (Session.get('modalData'))
+			return;
 		if (Session.get('windowWidth') !== width)
 			Session.set('windowWidth', width);
 	}, 100);

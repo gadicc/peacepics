@@ -26,3 +26,5 @@ service-configuration
 http
 facebook-meteor
 messageformat
+reactive-publish
+font-awesome

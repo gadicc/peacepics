@@ -3,6 +3,10 @@ var fbPages = {
 	"AniBoherBaShalom": "663130193756030",
 	"ArabsAndJews": "417366255018379"
 };
+var fbPageIds = {
+	"663130193756030": "AniBoherBaShalom",
+	"417366255018379": "ArabsAndJews"
+}
 var PICS_INIT_ROWS = 4;
 PICS_INIT_ROWS = 50;  // TODO infinite scroll
 
@@ -178,16 +182,83 @@ if (Meteor.isClient) {
 	}, 100);
 
 	Meteor.subscribe('pages');
+
+  function timeAgoShort(time) {
+    // difference in seconds
+    var date = new Date(), now = new Date();
+    date = new Date(time);
+    // date.setUTCDate(time);
+
+    var diff = Math.round((now.getTime() - date.getTime()) / 1000);
+
+    if (diff < 60) // minute
+    	return '< 1m';
+    if (diff < 3600) // hour
+    	return Math.round(diff / 60) + 'm';
+    if (diff < 82800) // 23 hrs  
+      return Math.round(diff/3600) + 'h';
+    if (diff < 2635200) // 30.5 days
+      return Math.round(diff/86400) + 'd';
+    if (diff < 28987200) // 11 months
+    	return Math.round(diff/2635200) + 'mo';
+    return Math.round(diff/31536000) + 'y';
+  }
+
+  UI.registerHelper('timeAgoShort', function(time) {
+    return timeAgoShort(time);
+  });
+
+
 }
 
 if (Meteor.isServer) {
 
-	Meteor.publish('pics', function(limit) {
+	Meteor.reactivePublish('pics', function(limit) {
+		var query = {
+			type:'photo'
+		};
+
 		var options = {
-			sort: { createdAt: -1 },
+			sort: { created_time: -1 },
 			limit: limit
 		};
-		return Pics.find({}, options);
+
+		var pageOptions = {
+			// AniBoherBaShalom
+			"663130193756030": {
+				fromOwner: true,
+				fromOther: false
+			},
+			// ArabsAndJews
+			"417366255018379": {
+				fromOwner: true,
+				fromOther: true
+			}
+		};
+
+		var self = this;
+		var handle = facebook.collections.feeds.find(query, options).observeChanges({
+			added: function(id, doc) {
+				var pageId = doc.id.split('_')[0];
+				var postId = doc.id.split('_')[1];
+				var opts = pageOptions[pageId];
+				// !(doc.status_type && doc.status_type == 'shared_story')
+				if (doc.to && !opts.fromOther || !doc.to && !opts.fromOwner)
+					return;
+				self.added("pics", doc.object_id, {
+					pageId: pageId,
+					createdAt: new Date(doc.created_time),
+					url: 'https://graph.facebook.com/' + doc.object_id + '/picture?type=album',
+					likeUrl: 'https://www.facebook.com/' + fbPageIds[pageId] + '/posts/' + postId,
+					link: doc.link
+				});
+			}
+		});
+
+	  self.onStop(function () {
+  	  handle.stop();
+  	});
+//		return Pics.find({}, options);
 	});
 
 	Meteor.publish('pages', function() {

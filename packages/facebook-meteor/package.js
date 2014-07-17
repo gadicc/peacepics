@@ -11,6 +11,8 @@ Package.on_use(function (api) {
 	
 	api.use('underscore', 'server');
 	api.use(['http', 'service-configuration', 'webapp'], 'server');
+
+	api.use('inject-initial', ['client', 'server']);
 	api.use('npm', 'server');
 
 	api.add_files('lib/server.js', 'server');

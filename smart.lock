@@ -12,7 +12,9 @@
       "inject-initial": {},
       "masonrify": {},
       "jquery-jcrop": {},
-      "messageformat": {}
+      "messageformat": {},
+      "reactive-publish": {},
+      "font-awesome": {}
     },
     "packages": {
       "blaze-layout": {
@@ -70,10 +72,25 @@
         "tag": "v0.0.33",
         "commit": "9152409d83d402bf796df812f63af5ee0977ae2b"
       },
+      "reactive-publish": {
+        "git": "https://github.com/Diggsey/meteor-reactive-publish.git",
+        "tag": "v0.1.6",
+        "commit": "dd8c149f109a1f3d1cac7e36293cf5904538ca90"
+      },
+      "font-awesome": {
+        "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
+        "tag": "v4.1.0",
+        "commit": "ce6b1e92715d1938babc5d69c655c17e387f5926"
+      },
       "headers": {
         "git": "https://github.com/gadicohen/meteor-headers.git",
         "tag": "v0.0.24",
         "commit": "3c09e682895e13c71ca0114baf3c09ee9c507709"
+      },
+      "server-deps": {
+        "git": "https://github.com/Diggsey/meteor-server-deps.git",
+        "tag": "v0.1.2",
+        "commit": "2db5d15fad9240723549cbbc5260a74b6b7e1c61"
       }
     }
   }

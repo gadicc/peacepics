@@ -64,14 +64,24 @@ if (Meteor.isClient) {
 			FB.XFBML.parse();
   };
 
+  Meteor.subscribe('userData');
+
+  UI.registerHelper('isAdmin', function() {
+  	var user = Meteor.user();
+  	return user && user.access == 'admin';
+  });
+
 }
 
 if (Meteor.isServer) {
 
-	Meteor.publish('userExtra', function() {
-		return Meteor.users.find({}, {
-			fields: { access: 1 }
-		});
+	Meteor.publish('userData', function() {
+		if (this.userId)
+			return Meteor.users.find(this.userId, {
+				fields: { access: 1 }
+			});
+		else
+			this.ready();
 	});
 
   AccountsExtra.init({

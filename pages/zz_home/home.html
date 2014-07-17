@@ -36,16 +36,28 @@
 
 <template name="pic">
 	<div class="pic" style="{{bg}}">
-		<div style="background-image: url({{url}})"></div>
+		<div class="img" style="background-image: url({{url}})"></div>
+		<div class="hl">
+			<i class="fa fa-clock-o"></i>
+			{{timeAgoShort createdAt}}
+		</div>
+		<div class="hl" style="right: 0">
+			<i class="fa fa-thumbs-up"></i>
+			23
+		</div>
 	</div>
 </template>
 
 <template name="picPopup">
 	<div class="picPopup">
+		<div class="fb-post" data-href="{{likeUrl}}" data-width="500"></div>
+
+		<!--
 		<p><img class="pic" src='https://graph.facebook.com/{{_id}}/picture'></p>
 
-		<div class="fb-like" data-href="https://www.facebook.com/photo.php?fbid={{_id}}" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+		<div class="fb-like" data-href="{{likeUrl}}" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
 
-		<div class="fb-comments" data-href="https://www.facebook.com/photo.php?fbid={{_id}}" data-numposts="5" data-colorscheme="light"></div>
+		<div class="fb-comments" data-href="{{likeUrl}}" data-numposts="5" data-colorscheme="light"></div>
+		-->
 	</div>
 </template>

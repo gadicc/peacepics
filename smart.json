@@ -10,6 +10,8 @@
     "inject-initial": {},
     "masonrify": {},
     "jquery-jcrop": {},
-    "messageformat": {}
+    "messageformat": {},
+    "reactive-publish": {},
+    "font-awesome": {}
   }
 }

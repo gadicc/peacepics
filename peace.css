@@ -24,6 +24,10 @@ ul.navbar-right > li:first-child {
 	padding-top: 12px; padding-bottom: 12px; display: block;
 }
 
+#login-buttons .login-display-name {
+	color: rgb(119, 119, 119);  /* bs3 */
+}
+
 #loadingBar {
   line-height: 1;
   height: 1em;

@@ -5,3 +5,8 @@ facebook = {
 		pages: new Meteor.Collection('facebook_pages'),
 	}
 }
+
+var injected = Injected.obj('facebook-meteor');
+facebook.appCredentials = {
+	appId: injected.appId
+}

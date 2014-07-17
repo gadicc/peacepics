@@ -9,7 +9,7 @@
 	<meta property="og:image:secure_url" content="https://peace.pics/og-image.jpg" />
 	<meta property="og:image:type" content="image/jpeg" />
 	<meta property="og:image:width" content="400" />
-	<meta property="og:image:height" content="300" />
+	<meta property="og:image:height" content="334" />
 </head>
 
 <body>
@@ -41,6 +41,9 @@
             <!--
             <li><a href="https://github.com/gadicc/peacepics" target="_TOP">Source</a></li>
             -->
+            {{#if isAdmin}}
+            	<li><a href="/admin">Admin</a></li>
+            {{/if}}
           </ul>
           <ul class="nav navbar-nav navbar-right">
           	<li><div class="fb-like" data-href="https://peace.pics/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></li>

@@ -76,6 +76,8 @@ facebook.feed._get = function(user, url) {
 	if (res.data)
 	_.each(res.data, function(post) {
 		post._id = post.id;
+		post.pageId = post.id.split('_')[0];
+		post.postId = post.id.split('_')[1];
 		inserted = !!facebook.collections.feeds.upsert(post.id, post, { upsert: true }).insertedId;
 		if (inserted)
 			for (var i=0; i < facebook.hooks.feed.length; i++)
@@ -92,6 +94,46 @@ facebook.feed.get = function(user) {
 	Fiber(function() {
 		facebook.feed._get(user);
 	}).run();
+}
+
+
+// REMOVE after single run
+facebook.collections.feeds.find({
+	postId: { $exists: false }
+}).forEach(function(post) {
+			console.log(1);
+		facebook.collections.feeds.update(post.id, { $set: {
+			pageId: post.id.split('_')[0],
+			postId: post.id.split('_')[1]
+		}});
+});
+
+
+facebook.feed._updateCounts = function(user, url) {
+	var res = url ? graph.get(user) : graph.get(user + '/feed'
+		+ '?fields=comments.limit(1).summary(true),likes.limit(1).summary(true)');
+
+	_.each(res.data, function(post) {
+		var data = {};
+		if (post.likes)
+			data['likes.summary.total_count'] = post.likes.summary.total_count;		
+		if (post.comments)
+			data['comments.summary.total_count'] = post.comments.summary.total_count;
+
+		facebook.collections.feeds.update(post.id, { $set: data });
+	});
+
+	if (res.paging && res.paging.next) {
+		Meteor.setTimeout(function() {
+			facebook.feed._updateCounts(res.paging.next, true);
+		}, 1000);
+	}
+}
+
+facebook.feed.updateCounts = function(page, fields, force) {
+	Fiber(function() {
+		facebook.feed._updateCounts(page, fields, force);
+	}).run();	
 }
 
 facebook.page._get = function(page, fields, force) {

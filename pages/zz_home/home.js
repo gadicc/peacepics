@@ -244,22 +244,39 @@ if (Meteor.isServer) {
 			}
 		};
 
+		query.$or = [];
+		for (pageId in pageOptions) {
+			var opts = pageOptions[pageId];
+			var out = {};
+			if (!opts.fromOther)
+				out.to = { $exists: false };
+			if (!opts.fromOwner)
+				out.to = { $exists: true };
+			// !(doc.status_type && doc.status_type == 'shared_story')
+			out.pageId = pageId;
+			query.$or.push(out);			
+		}
+
 		var self = this;
 		var handle = facebook.collections.feeds.find(query, options).observeChanges({
 			added: function(id, doc) {
-				var pageId = doc.id.split('_')[0];
-				var postId = doc.id.split('_')[1];
-				var opts = pageOptions[pageId];
-				// !(doc.status_type && doc.status_type == 'shared_story')
-				if (doc.to && !opts.fromOther || !doc.to && !opts.fromOwner)
-					return;
-				self.added("pics", doc.object_id, {
-					pageId: pageId,
+				self.added("pics", id, {
+					pageId: doc.pageId,
 					createdAt: new Date(doc.created_time),
 					url: 'https://graph.facebook.com/' + doc.object_id + '/picture?type=album',
-					likeUrl: 'https://www.facebook.com/' + fbPageIds[pageId] + '/posts/' + postId,
+					likesCount: doc.likes.summary && doc.likes.summary.total_count,
+					likeUrl: 'https://www.facebook.com/' + fbPageIds[doc.pageId] + '/posts/' + doc.postId,
 					link: doc.link
 				});
+			},
+			changed: function(id, fields) {
+				if (!fields.likes)
+					return;
+
+				var data = {};
+				if (fields.likes && fields.likes.summary)
+					data['likesCount'] = fields.likes.summary.total_count;
+				self.changed('pics', id, data);
 			}
 		});
 
@@ -324,6 +341,7 @@ if (Meteor.isServer) {
 
 	});
 
+	/*
 	facebook.on('feed', function(doc) {
 		console.log('onFeed');
 		console.log(doc);
@@ -337,6 +355,7 @@ if (Meteor.isServer) {
 			});
 		}
 	});
+*/
 
 	if (process.env.NODE_ENV && process.env.NODE_ENV == "production")
 	Meteor.setTimeout(function() {
@@ -344,6 +363,7 @@ if (Meteor.isServer) {
 		for (page in fbPages) {
 			facebook.feed.get(fbPages[page]);
 			facebook.page.get(fbPages[page], null, true);
+			facebook.feed.updateCounts(fbPages[page]);
 		}
 	}, 30000);
 

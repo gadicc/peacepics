@@ -15,14 +15,12 @@ div.pic {
 	-o-transition: all .35s ease-in-out;
 }
 
-div.pic > div.img {
+div.pic > img {
 	width: 100%; height: 100%;
-	background-position: center 0px;
-	background-size: 100% 100%;
 }
 
 div.pic { position: relative; }
-div.pic > div { position: absolute; bottom: 0; }
+div.pic > * { position: absolute; bottom: 0; }
 div.hl {	
 	height: 2em;
 	line-height: 2em;

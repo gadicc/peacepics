@@ -63,6 +63,13 @@ if (Meteor.isClient) {
 		}
 	});
 
+	Template.pic.rendered = function() {
+		// after loading thumbnail, load full res version
+		this.$('img')[0].onload = function() {
+			this.src = this.src.replace(/album$/, 'normal');
+		}
+	}
+
 	Template.picPopup.rendered = function() {
 		FB.XFBML.parse();
 	};
@@ -215,13 +222,14 @@ if (Meteor.isServer) {
 
 	Meteor.reactivePublish('pics', function(limit) {
 		var query = {
-			type:'photo'
+			type: 'photo'
 		};
 
 		var options = {
 			sort: { created_time: -1 },
-			limit: limit
 		};
+		if (limit)
+			options.limit = limit;
 
 		var pageOptions = {
 			// AniBoherBaShalom

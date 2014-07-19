@@ -64,7 +64,7 @@ function addUserToMap(user) {
 
 // Randomize markers around the city center
 function locRnd() {
-  return (Math.random() - 0.5) / 100;
+  return (Math.random() - 0.5) / 50;
 }
 
 function markerInfo() {

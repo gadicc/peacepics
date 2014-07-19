@@ -358,8 +358,7 @@ if (Meteor.isServer) {
 */
 
 	if (process.env.NODE_ENV && process.env.NODE_ENV == "production")
-	Meteor.setTimeout(function() {
-		console.log('go');
+	Meteor.setInterval(function() {
 		for (page in fbPages) {
 			facebook.feed.get(fbPages[page]);
 			facebook.page.get(fbPages[page], null, true);

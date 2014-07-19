@@ -139,13 +139,23 @@ if (Meteor.isClient) {
 		}
 	});
 
+	var lastInsert = null;
 	Template.fbPage.rendered = function() {
 		var parent = this.$('#gallery')[0];
 		parent._uihooks = {
 			insertElement: function(node, next) {
+				console.log(subs.pics.ready());
 				var $node = $(node);
-				$node.addClass('zeroWidth');
+				var now = new Date();
+				var animate = now - lastInsert > 500;
+				lastInsert = now;
+
+				if (animate)
+					$node.addClass('zeroWidth');
+
 				parent.insertBefore(node, next);
+
+				if (animate)
 				window.setTimeout(function() {
 					$node.removeClass('zeroWidth');
 				}, 0);
@@ -161,7 +171,7 @@ if (Meteor.isClient) {
 	Session.set('windowWidth', $(window).width());
 	$(document).ready(function() {
 		Deps.autorun(function() {
-			var IDEAL_WIDTH = 180;
+			var IDEAL_WIDTH = 200;
 			var sheet = document.getElementById('picStyle').sheet;
 			var windowWidth = Session.get('windowWidth');
 			var cols = Math.round(windowWidth / IDEAL_WIDTH);
@@ -234,13 +244,11 @@ if (Meteor.isServer) {
 		var pageOptions = {
 			// AniBoherBaShalom
 			"663130193756030": {
-				fromOwner: true,
 				fromOther: false
 			},
 			// ArabsAndJews
 			"417366255018379": {
 				fromOwner: true,
-				fromOther: true
 			}
 		};
 
@@ -249,9 +257,7 @@ if (Meteor.isServer) {
 			var opts = pageOptions[pageId];
 			var out = {};
 			if (!opts.fromOther)
-				out.to = { $exists: false };
-			if (!opts.fromOwner)
-				out.to = { $exists: true };
+				out['from.id'] = pageId;
 			// !(doc.status_type && doc.status_type == 'shared_story')
 			out.pageId = pageId;
 			query.$or.push(out);			
@@ -357,14 +363,19 @@ if (Meteor.isServer) {
 	});
 */
 
-	if (process.env.NODE_ENV && process.env.NODE_ENV == "production")
-	Meteor.setInterval(function() {
-		for (page in fbPages) {
-			facebook.feed.get(fbPages[page]);
-			facebook.page.get(fbPages[page], null, true);
-			facebook.feed.updateCounts(fbPages[page]);
-		}
-	}, 30000);
+	if (1 || process.env.NODE_ENV && process.env.NODE_ENV == "production") {
+		Meteor.setInterval(function() {
+			for (page in fbPages) {
+				facebook.feed.get(fbPages[page]);
+				facebook.page.get(fbPages[page], null, true);
+			}
+		}, 30000); // 30s
+		Meteor.setInterval(function() {
+			for (page in fbPages) {
+				facebook.feed.updateCounts(fbPages[page]);
+			}
+		}, 120000); // 2m
+	}
 
 	/*
 	var count = Pics.find({pageId: "417366255018379"}).count();

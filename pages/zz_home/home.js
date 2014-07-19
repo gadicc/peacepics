@@ -279,7 +279,7 @@ if (Meteor.isServer) {
 				addedObjectIds[doc.object_id] = 1;
 			},
 			changed: function(id, fields) {
-				if (!fields.likes)
+				if (!fields.likes || !addedObjectIds[doc.object_id])
 					return;
 
 				var data = {};

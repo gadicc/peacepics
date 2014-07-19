@@ -248,7 +248,7 @@ if (Meteor.isServer) {
 			},
 			// ArabsAndJews
 			"417366255018379": {
-				fromOwner: true,
+				fromOther: true,
 			}
 		};
 

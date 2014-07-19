@@ -265,21 +265,24 @@ if (Meteor.isServer) {
 
 		var self = this;
 		var addedObjectIds = {};
+		var publishedDocs = {};
 		var handle = facebook.collections.feeds.find(query, options).observeChanges({
 			added: function(id, doc) {
-				if (!addedObjectIds[doc.object_id])
-				self.added("pics", id, {
-					pageId: doc.pageId,
-					createdAt: new Date(doc.created_time),
-					url: 'https://graph.facebook.com/' + doc.object_id + '/picture?type=album',
-					likesCount: doc.likes && doc.likes.summary && doc.likes.summary.total_count,
-					likeUrl: 'https://www.facebook.com/' + fbPageIds[doc.pageId] + '/posts/' + doc.postId,
-					link: doc.link
-				});
+				if (!addedObjectIds[doc.object_id]) {
+					self.added("pics", id, {
+						pageId: doc.pageId,
+						createdAt: new Date(doc.created_time),
+						url: 'https://graph.facebook.com/' + doc.object_id + '/picture?type=album',
+						likesCount: doc.likes && doc.likes.summary && doc.likes.summary.total_count,
+						likeUrl: 'https://www.facebook.com/' + fbPageIds[doc.pageId] + '/posts/' + doc.postId,
+						link: doc.link
+					});
+					publishedDocs[id] = 1;
+				}
 				addedObjectIds[doc.object_id] = 1;
 			},
 			changed: function(id, fields) {
-				if (!fields.likes || !addedObjectIds[doc.object_id])
+				if (!fields.likes || !publishedDocs[id])
 					return;
 
 				var data = {};

@@ -50,6 +50,10 @@
 
 <template name="picPopup">
 	<div class="picPopup">
+		{{#if isAdmin}}
+			Admins:
+				<a id="hidePic">Hide this picture</a>
+		{{/if}}
 		<div class="fb-post" data-href="{{likeUrl}}" data-width="500"></div>
 
 		<!--

@@ -71,8 +71,20 @@ if (Meteor.isClient) {
 	}
 
 	Template.picPopup.rendered = function() {
-		FB.XFBML.parse();
+		if (typeof FB === 'object')
+			FB.XFBML.parse();
 	};
+
+	Template.picPopup.events({
+		'click #hidePic': function(event, tpl) {
+			console.log(tpl.data._id);
+			facebook.collections.feeds.update(tpl.data._id, { $set: {
+				hidden: true
+			}});
+			console.log(tpl.data);
+			console.log(facebook.collections.feeds.findOne(tpl.data._id));
+		}
+	});
 
 	Stats = new Meteor.Collection('stats');
 	Meteor.subscribe('stats');
@@ -232,7 +244,8 @@ if (Meteor.isServer) {
 
 	Meteor.reactivePublish('pics', function(limit) {
 		var query = {
-			type: 'photo'
+			type: 'photo',
+			hidden: {$exists: false}
 		};
 
 		var options = {
@@ -268,7 +281,7 @@ if (Meteor.isServer) {
 		var publishedDocs = {};
 		var handle = facebook.collections.feeds.find(query, options).observeChanges({
 			added: function(id, doc) {
-				if (!addedObjectIds[doc.object_id]) {
+				if (!addedObjectIds[doc.object_id])
 					self.added("pics", id, {
 						pageId: doc.pageId,
 						createdAt: new Date(doc.created_time),
@@ -278,7 +291,6 @@ if (Meteor.isServer) {
 						link: doc.link
 					});
 					publishedDocs[id] = 1;
-				}
 				addedObjectIds[doc.object_id] = 1;
 			},
 			changed: function(id, fields) {
@@ -289,6 +301,9 @@ if (Meteor.isServer) {
 				if (fields.likes && fields.likes.summary)
 					data['likesCount'] = fields.likes.summary.total_count;
 				self.changed('pics', id, data);
+			},
+			removed: function(id) {
+				self.removed('pics', id);
 			}
 		});
 

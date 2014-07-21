@@ -75,10 +75,9 @@ facebook.feed._get = function(user, url) {
 	var inserted = false;
 	if (res.data)
 	_.each(res.data, function(post) {
-		post._id = post.id;
 		post.pageId = post.id.split('_')[0];
 		post.postId = post.id.split('_')[1];
-		inserted = !!facebook.collections.feeds.upsert(post.id, post, { upsert: true }).insertedId;
+		inserted = !!facebook.collections.feeds.upsert(post.id, {$set:post}, { upsert: true }).insertedId;
 		if (inserted)
 			for (var i=0; i < facebook.hooks.feed.length; i++)
 				facebook.hooks.feed[i].call(null, post);

@@ -8,6 +8,9 @@ gm.geocode = Async.wrap(gm.geocode);
 locations.check = function(name) {
 	if (!this.get(name)) {
 	  var res = gm.geocode(name);
+	  if (!res || !res.results || !res.results.length)
+	  	return;
+
 	  var data = res.results[0];
 	  data.reqName = name;
 	  Locations.insert(data);

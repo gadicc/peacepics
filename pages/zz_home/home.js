@@ -294,12 +294,11 @@ if (Meteor.isServer) {
 				addedObjectIds[doc.object_id] = 1;
 			},
 			changed: function(id, fields) {
-				if (!fields.likes || !publishedDocs[id])
+				if (!fields.likes || !fields.likes.summary || !publishedDocs[id])
 					return;
 
 				var data = {};
-				if (fields.likes && fields.likes.summary)
-					data['likesCount'] = fields.likes.summary.total_count;
+				data['likesCount'] = fields.likes.summary.total_count;
 				self.changed('pics', id, data);
 			},
 			removed: function(id) {

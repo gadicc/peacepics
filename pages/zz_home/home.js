@@ -281,7 +281,7 @@ if (Meteor.isServer) {
 		var publishedDocs = {};
 		var handle = facebook.collections.feeds.find(query, options).observeChanges({
 			added: function(id, doc) {
-				if (!addedObjectIds[doc.object_id])
+				if (!addedObjectIds[doc.object_id]) {
 					self.added("pics", id, {
 						pageId: doc.pageId,
 						createdAt: new Date(doc.created_time),
@@ -291,7 +291,8 @@ if (Meteor.isServer) {
 						link: doc.link
 					});
 					publishedDocs[id] = 1;
-				addedObjectIds[doc.object_id] = 1;
+					addedObjectIds[doc.object_id] = 1;
+				}
 			},
 			changed: function(id, fields) {
 				if (!fields.likes || !fields.likes.summary || !publishedDocs[id])
